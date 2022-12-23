@@ -1,0 +1,19 @@
+.zoom-icon {
+  height: 35px;
+  width: 35px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.carousel-icon-light {
+  opacity: 0.4;
+}
+
+.carousel-icon-dark {
+  opacity: 1;
+}
+
+.flex-fixed-width-item {
+  flex: 0 0 60px;
+}
