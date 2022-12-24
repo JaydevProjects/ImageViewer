@@ -46,7 +46,10 @@ export const ImageViewer = ({
       zoomUseClick: true,
       zoomUseWheel: true,
       zoomPinFrame: true,
-      plugins: ["360", "drag", "zoom"],
+      progress: {
+        percent: 0,
+      },
+      plugins: ["360", "drag", "zoom", "progress"],
       responsive: true,
       onInit: (e, data) => {
         setData(data);
@@ -93,17 +96,18 @@ export const ImageViewer = ({
           ref={imageRef}
           onDoubleClick={changeCursor}
           onMouseMove={onMouseMove}
-        />
-        <div
-          className="zoom-icon p-2 bg-light rounded-circle d-flex justify-content-center align-items-center"
-          onClick={zoomClick}
-          role="button"
         >
-          <img
-            alt="Not Found"
-            height="15px"
-            src={`../images/${!fullScreen ? "zoom-out" : "zoom-in"}.png`}
-          />
+          <div
+            className="zoom-icon p-2 bg-light rounded-circle d-flex justify-content-center align-items-center"
+            onClick={zoomClick}
+            role="button"
+          >
+            <img
+              alt="Not Found"
+              height="15px"
+              src={`../images/${!fullScreen ? "zoom-out" : "zoom-in"}.png`}
+            />
+          </div>
         </div>
         <div className="w-100 mt-2 px-2 d-flex justify-content-center align-items-center mb-2">
           <div className="bg-light rounded d-flex justify-content-center align-items-center p-2">
