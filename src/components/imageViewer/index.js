@@ -23,7 +23,6 @@ export const ImageViewer = ({
 
   //initialize function for image viewer
   const initializeData = () => {
-    console.log(parentRef?.current?.clientHeight);
     SpriteSpin.spritespin({
       target: imageRef?.current,
       source: SpriteSpin.source(`../images/${image}/${image}-{frame}.jpg`, {
