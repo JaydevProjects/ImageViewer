@@ -14,6 +14,7 @@ export const ImageViewer = ({
   const [data, setData] = useState();
   const [cursor, setCursor] = useState(false);
   const imageRef = useRef(null);
+  const parentRef = useRef(null);
 
   //update data as image changes
   useEffect(() => {
@@ -22,6 +23,7 @@ export const ImageViewer = ({
 
   //initialize function for image viewer
   const initializeData = () => {
+    console.log(parentRef?.current?.clientHeight);
     SpriteSpin.spritespin({
       target: imageRef?.current,
       source: SpriteSpin.source(`../images/${image}/${image}-{frame}.jpg`, {
@@ -35,7 +37,7 @@ export const ImageViewer = ({
         digits: 1,
       }),
       lanes: 12,
-      height: fullScreen ? 600 : 300,
+      height: fullScreen ? parentRef?.current?.clientHeight - 80 : 300,
       frames: 24,
       sense: 1,
       senseLane: -2,
@@ -85,6 +87,7 @@ export const ImageViewer = ({
         className={`border rounded p-1 position-relative ${
           fullScreen ? "w-100 h-100" : ""
         }`}
+        ref={parentRef}
       >
         <div
           className={cursor ? "cursor-all-scroll" : "cursor-grabbable"}
